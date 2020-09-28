@@ -17,12 +17,26 @@ describe('calculator functionality', function() {
     expect(running_total.getAttribute('value')).to.eventually.equal('2')
   })
 
-  it('should let the number buttons update the display of the running total', function() {
+  it('should let the arithmetical operations update the display with the result of the operation', function() {
+    running_total = element(by.css('#running_total'))
+    element(by.css('#number9')).click();
+    element(by.css('#operator_add')).click();
+    element(by.css('#number8')).click();
+    element(by.css('#operator_equals')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('17')
+  })
+
+  it('should chain multiple operators together', function() {
     running_total = element(by.css('#running_total'))
     element(by.css('#number5')).click();
     element(by.css('#operator_add')).click();
+    element(by.css('#number5')).click();
     element(by.css('#operator_multiply')).click();
-    expect(running_total.getAttribute('value')).to.eventually.equal('10')
+    element(by.css('#number2')).click();
+    element(by.css('#operator_equals')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('20')
   })
+
+  
 
 });
