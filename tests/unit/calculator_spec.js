@@ -19,5 +19,12 @@ describe('calculator', function () {
     assert.strictEqual(calculator.runningTotal, 5)
   })
 
+  it('can subtract two numbers', function() {
+    calculator.add('7')
+    calculator.operatorClick('-')
+    calculator.subtract('4')
+    assert.strictEqual(calculator.runningTotal, 3)
+  })
+
 
 });
