@@ -40,5 +40,12 @@ describe('calculator', function () {
     assert.strictEqual(calculator.runningTotal, 3)
   })
 
+  it ('it can concatenate multiple numbers together', function() {
+    calculator.numberClick('2')
+    calculator.numberClick('4')
+    calculator.numberClick('6')
+    assert.strictEqual(calculator.runningTotal, 246)
+  })
+
 
 });
