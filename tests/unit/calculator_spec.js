@@ -33,18 +33,26 @@ describe('calculator', function () {
     assert.strictEqual(calculator.runningTotal, 15)
   })
 
-  it ('it can divide two numbers', function() {
+  it('it can divide two numbers', function() {
     calculator.add('21')
     calculator.operatorClick('/')
     calculator.divide('7')
     assert.strictEqual(calculator.runningTotal, 3)
   })
 
-  it ('it can concatenate multiple numbers together', function() {
+  it('it can concatenate multiple numbers together', function() {
     calculator.numberClick('2')
     calculator.numberClick('4')
     calculator.numberClick('6')
     assert.strictEqual(calculator.runningTotal, 246)
+  })
+
+  it('it can chain multiple operations together', function() {
+    calculator.numberClick('5')
+    calculator.operatorClick('+')
+    calculator.operatorClick('*')
+    calculator.operatorClick('+')
+    assert.strictEqual(calculator.runningTotal, 100)
   })
 
 
