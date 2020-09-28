@@ -33,5 +33,12 @@ describe('calculator', function () {
     assert.strictEqual(calculator.runningTotal, 15)
   })
 
+  it ('it can divide two numbers', function() {
+    calculator.add('21')
+    calculator.operatorClick('/')
+    calculator.divide('7')
+    assert.strictEqual(calculator.runningTotal, 3)
+  })
+
 
 });
