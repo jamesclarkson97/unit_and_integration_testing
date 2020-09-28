@@ -26,5 +26,12 @@ describe('calculator', function () {
     assert.strictEqual(calculator.runningTotal, 3)
   })
 
+  it('it can multiply two numbers', function() {
+    calculator.add('3')
+    calculator.operatorClick('*')
+    calculator.multiply('5')
+    assert.strictEqual(calculator.runningTotal, 15)
+  })
+
 
 });
