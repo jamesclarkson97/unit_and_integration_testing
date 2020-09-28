@@ -34,7 +34,33 @@ describe('calculator functionality', function() {
     element(by.css('#operator_multiply')).click();
     element(by.css('#number2')).click();
     element(by.css('#operator_equals')).click();
-    expect(running_total.getAttribute('value')).to.eventually.equal('20')
+    expect(running_total.getAttribute('value')).to.eventually.equal('20');
+  })
+
+  it('should correctly display a wide range of different types of numbers', function() {
+    running_total = element(by.css('#running_total'))
+    element(by.css('#number2')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('2');
+    element(by.css('#operator_subtract')).click();
+    element(by.css('#number2')).click();
+    element(by.css('#number0')).click();
+    element(by.css('#operator_equals')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('-18');
+    element(by.css('#clear')).click();
+    element(by.css('#number5')).click();
+    element(by.css('#operator_divide')).click();
+    element(by.css('#number2')).click();
+    element(by.css('#operator_equals')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('2.5');
+    element(by.css('#operator_multiply')).click();
+    element(by.css('#number2')).click();
+    element(by.css('#number0')).click();
+    element(by.css('#number0')).click();
+    element(by.css('#number0')).click();
+    element(by.css('#number0')).click();
+    element(by.css('#number0')).click();
+    element(by.css('#operator_equals')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('500000');
   })
 
   
